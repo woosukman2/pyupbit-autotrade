@@ -4,8 +4,8 @@ import datetime
 import schedule
 from fbprophet import Prophet
 
-access = "your-access"
-secret = "your-secret"
+access = "iy3M3acbl452rikeXxh6DbhGXhT5xKYw2u1DfRln"
+secret = "Gx0q9lhdmzUk5sFDwmztg40vyuh5wKVgUKPJxTuE"
 
 def get_target_price(ticker, k):
     """변동성 돌파 전략으로 매수 목표가 조회"""
@@ -56,19 +56,20 @@ predict_price("KRW-BTC")
 schedule.every().hour.do(lambda: predict_price("KRW-BTC"))
 
 # 로그인
-upbit = pyupbit.Upbit(access, secret)
+upbit = pyupbit.Upbit(iy3M3acbl452rikeXxh6DbhGXhT5xKYw2u1DfRln, Gx0q9lhdmzUk5sFDwmztg40vyuh5wKVgUKPJxTuE)
 print("autotrade start")
 
 # 자동매매 시작
 while True:
     try:
         now = datetime.datetime.now()
-        start_time = get_start_time("KRW-BTC")
-        end_time = start_time + datetime.timedelta(days=1)
+        start_time = get_start_time("KRW-BTC") #9:00
+        end_time = start_time + datetime.timedelta(days=1) #9:00 + 1일
         schedule.run_pending()
 
+        #9:00 < 현재 < #8:59 :50
         if start_time < now < end_time - datetime.timedelta(seconds=10):
-            target_price = get_target_price("KRW-BTC", 0.5)
+            target_price = get_target_price("KRW-BTC", 0.7)
             current_price = get_current_price("KRW-BTC")
             if target_price < current_price and current_price < predicted_close_price:
                 krw = get_balance("KRW")
