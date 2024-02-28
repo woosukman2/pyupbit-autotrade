@@ -2,8 +2,8 @@ import time
 import pyupbit
 import datetime
 
-access = "your-access"
-secret = "your-secret"
+access = "iy3M3acbl452rikeXxh6DbhGXhT5xKYw2u1DfRln"
+secret = "Gx0q9lhdmzUk5sFDwmztg40vyuh5wKVgUKPJxTuE"
 
 def get_target_price(ticker, k):
     """변동성 돌파 전략으로 매수 목표가 조회"""
@@ -39,7 +39,7 @@ def get_current_price(ticker):
     return pyupbit.get_orderbook(ticker=ticker)["orderbook_units"][0]["ask_price"]
 
 # 로그인
-upbit = pyupbit.Upbit(access, secret)
+upbit = pyupbit.Upbit(iy3M3acbl452rikeXxh6DbhGXhT5xKYw2u1DfRln, Gx0q9lhdmzUk5sFDwmztg40vyuh5wKVgUKPJxTuE)
 print("autotrade start")
 
 # 자동매매 시작
@@ -50,7 +50,7 @@ while True:
         end_time = start_time + datetime.timedelta(days=1)
 
         if start_time < now < end_time - datetime.timedelta(seconds=10):
-            target_price = get_target_price("KRW-BTC", 0.5)
+            target_price = get_target_price("KRW-BTC", 0.7)
             ma15 = get_ma15("KRW-BTC")
             current_price = get_current_price("KRW-BTC")
             if target_price < current_price and ma15 < current_price:
