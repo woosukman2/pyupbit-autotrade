@@ -39,7 +39,7 @@ def get_current_price(ticker):
     return pyupbit.get_orderbook(ticker=ticker)["orderbook_units"][0]["ask_price"]
 
 # 로그인
-upbit = pyupbit.Upbit(iy3M3acbl452rikeXxh6DbhGXhT5xKYw2u1DfRln, Gx0q9lhdmzUk5sFDwmztg40vyuh5wKVgUKPJxTuE)
+upbit = pyupbit.Upbit(access , secret)
 print("autotrade start")
 
 # 자동매매 시작
