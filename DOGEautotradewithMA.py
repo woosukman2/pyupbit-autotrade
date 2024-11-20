@@ -49,7 +49,7 @@ while True:
         start_time = get_start_time("KRW-DOGE")
         end_time = start_time + datetime.timedelta(days=1)
 
-        if start_time < now < end_time - datetime.timedelta(seconds=10):
+        if start_time < now < end_time - datetime.timedelta(seconds=7200):
             target_price = get_target_price("KRW-DOGE", 0.5)
             ma15 = get_ma15("KRW-DOGE")
             current_price = get_current_price("KRW-DOGE")
