@@ -6,6 +6,7 @@ from fbprophet import Prophet
 
 access = "cdIGOvAcKnGW3JZuHb97tc0iexBuclpkdJ3saqHB"
 secret = "dQFkGunoGpELbYU5ZjOgdi4sI2S9dvjVFrQLY8Av"
+myToken = "xoxe.xoxp-1-Mi0yLTQ4NTI1NzIxODMyMS03NDc5MjQ1ODc4NzU3LTgwODI3MDU2MDU2MjMtODA5NzIzNjk1NTUzOC04NGRmZGM2NmQ3ZDY0MDE4NzlhYTQ3MTBiMjJhYzdmN2U5MmUyMjExMjJiMmIyYjA0ODU0Y2NlZWY2OTA2YmMz"
 
 def get_target_price(ticker, k):
     """변동성 돌파 전략으로 매수 목표가 조회"""
