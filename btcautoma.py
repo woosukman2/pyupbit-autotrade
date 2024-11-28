@@ -74,7 +74,7 @@ while True:
             target_price = get_target_price("KRW-BTC", 0.7)
             ma15 = get_ma15("KRW-BTC")
             current_price = get_current_price("KRW-BTC")
-            if target_price < current_price and ma15 < current_price:
+            if target_price < current_price and ma15 < predicted_close_price: 
                 krw = get_balance("KRW")
                 if krw > 5000:  # Minimum order requirement for Upbit
                     upbit.buy_market_order("KRW-BTC", krw * 0.9995)
