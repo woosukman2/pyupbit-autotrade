@@ -2,7 +2,7 @@ import time
 import pyupbit
 import datetime
 import schedule
-from fbprophet import Prophet
+from prophet import Prophet
 
 access = "cdIGOvAcKnGW3JZuHb97tc0iexBuclpkdJ3saqHB"
 secret = "dQFkGunoGpELbYU5ZjOgdi4sI2S9dvjVFrQLY8Av"
@@ -49,7 +49,7 @@ def get_current_price(ticker):
 
 predicted_close_price = 0
 def predict_price(ticker):
-    """Prophet으로 당일 종가 가격 예측"""
+    """prophet으로 당일 종가 가격 예측"""
     global predicted_close_price
     df = pyupbit.get_ohlcv(ticker, interval="minute60")
     df = df.reset_index()
@@ -97,4 +97,3 @@ while True:
         print(e)
         post_message(myToken,"#crypto", e)
         time.sleep(1)
-
