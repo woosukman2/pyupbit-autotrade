@@ -95,5 +95,6 @@ while True:
         time.sleep(1)
     except Exception as e:
         print(e)
+        post_message(myToken,"#crypto", e)
         time.sleep(1)
 
