@@ -2,8 +2,8 @@ import time
 import pyupbit
 import datetime
 
-access = "your-access"
-secret = "your-secret"
+access = "cdIGOvAcKnGW3JZuHb97tc0iexBuclpkdJ3saqHB"
+secret = "dQFkGunoGpELbYU5ZjOgdi4sI2S9dvjVFrQLY8Av"
 
 def get_target_price(ticker, k):
     """변동성 돌파 전략으로 매수 목표가 조회"""
@@ -44,7 +44,7 @@ while True:
         end_time = start_time + datetime.timedelta(days=1)
 
         if start_time < now < end_time - datetime.timedelta(seconds=10):
-            target_price = get_target_price("KRW-BTC", 0.5)
+            target_price = get_target_price("KRW-BTC", 0.7)
             current_price = get_current_price("KRW-BTC")
             if target_price < current_price:
                 krw = get_balance("KRW")
